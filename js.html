@@ -1,0 +1,27 @@
+
+<!-- saved from url=(0040)http://udacity-crp.herokuapp.com/js.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta name="viewport" content="width=device-width">
+    <link href="./js_files/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <p>
+      Hello <span style="display: inline;">interactive</span> students!
+    </p>
+    <div><img src="./js_files/awesome-photo.jpg"></div>
+
+    <script>
+      var span = document.getElementsByTagName('span')[0];
+      span.innerText = 'interactive'; // change DOM text content
+      span.style.display = 'inline';  // change CSSOM property
+
+      // create a new element, style it, and append it to the DOM
+      var loadTime = document.createElement('div');
+      loadTime.innerText = 'You loaded this page on: ' + new Date();
+      loadTime.style.color = 'blue';
+
+      document.body.appendChild(loadTime);
+    </script><div style="color: blue;">You loaded this page on: Tue Feb 21 2017 15:58:56 GMT+0100 (&#346;rodkowoeuropejski czas stand.)</div>
+  
+
+</body></html>
