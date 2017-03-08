@@ -5,8 +5,6 @@
     <title>Critical Path: Script External</title>
   </head>
   <body>
-    <p>Hello <span>web performance</span> students!</p>
-    
     <script type="text/javascript">
 function downloadJSAtOnload() {
 var element = document.createElement("script");
@@ -19,6 +17,7 @@ else if (window.attachEvent)
 window.attachEvent("onload", downloadJSAtOnload);
 else window.onload = downloadJSAtOnload;
 </script>
+ <p>Hello <span>web performance</span> students!</p>
  <div><img src="awesome-photo.jpg"></div> 
   </body>
 </html>
