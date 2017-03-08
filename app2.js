@@ -1,6 +1,11 @@
+function sleep(delay) {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + delay);
+      }
+sleep(5000);
+
 var span = document.getElementsByTagName('span')[0];
 span.textContent = 'interactive'; // change DOM text content
-sleep(20000)
 span.style.display = 'inline';  // change CSSOM property
 // create a new element, style it, and append it to the DOM
 var loadTime = document.createElement('div');
