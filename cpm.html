@@ -19,5 +19,28 @@
   <body onload="measureCRP()">
     <p>Hello <span>web performance</span> students!</p>
     <div><img src="awesome-photo.jpg"></div>
+  <ul>
+<li><strong>domLoading:</strong> jest to sygnatura czasowa, od której rozpoczyna się cały proces &ndash; przeglądarka właśnie ma rozpocząć parsowanie pierwszych odebranych bajtów dokumentu
+  HTML.</li>
+<li><strong>domInteractive:</strong> sygnalizuje moment, w którym przeglądarka kończy parsowanie wszystkich znaczników HTML i tworzenie modelu DOM.</li>
+<li><strong>domContentLoaded:</strong> sygnalizuje moment, w którym model DOM jest gotowy, arkusze stylów blokujące wykonywanie skryptów JavaScript nie występują, co oznacza, że teraz można (potencjalnie) utworzyć drzewo renderowania.<ul>
+<li>Wiele platform JavaScript czeka z wykonywaniem własnego kodu do pojawienia się tego zdarzenia. Z tej przyczyny przeglądarka przechwytuje sygnatury czasowe <em>EventStart</em> i <em>EventEnd</em>, umożliwiając śledzenia czasu wykonywania.</li>
+</ul>
+</li>
+<li><strong>domComplete:</strong> jak wskazuje nazwa, ukończono wszystkie procedury przetwarzania i pobieranie wszystkich zasobów na stronie (obrazów itd.) - tzn. wskaźnik postępu wczytywania przestał się obracać.</li>
+<li><strong>loadEvent:</strong> ostatnim etapem wczytywania strony jest wygenerowanie zdarzenia <code>onload</code>, które może wyzwolić wykonywanie dodatkowego kodu aplikacji.</li>
+</ul>
+<p>Specyfikacja HTML określa szczegóły odnośnie do występowania każdego ze zdarzeń: kiedy należy je wygenerować, jakie warunki powinny być spełnione i tak dalej. W naszym przypadku skupimy się na kilku kluczowych zdarzeniach związanych z krytyczną ścieżką renderowania:</p>
+<ul>
+<li><strong>domInteractive</strong> sygnalizuje, kiedy gotowy jest model DOM.</li>
+<li><strong>domContentLoaded</strong> zazwyczaj sygnalizuje, kiedy <a class="external" href="http://calendar.perfplanet.com/2012/deciphering-the-critical-rendering-path/">zarówno model DOM, jak i model CSSOM są gotowe</a>.<ul>
+<li>Jeśli nie występują skrypty JavaScript blokujące parsowanie, zdarzenie <em>DOMContentLoaded</em> jest wyzwalane bezpośrednio po zdarzeniu <em>domInteractive</em>.</li>
+</ul>
+</li>
+<li>Zdarzenie <strong>domComplete</strong> informuje o gotowości strony i wszystkich skojarzonych z nią zasobów.</li>
+</ul>
+  
+  
+  
   </body>
 </html>
